@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Апрельский сюрприз</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" data-from="Изабелла" data-to="Давид">
+            <div class="card-content">
+                <div class="sender">От: <span class="name">Изабелла</span></div>
+                <div class="recipient blurred">Кому: <span class="name">Давид</span></div>
+
+                <p>Слушай, а ты не знал… но твоя симпатия ко мне увеличилась на
+                    <span class="spoiler blurred">100% за последние 24 часа. С 1 апреля 😏</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-from="Изабелла" data-to="Давид">
+            <div class="card-content">
+                <div class="sender">От: <span class="name">Изабелла</span></div>
+                <div class="recipient blurred">Кому: <span class="name">Давид</span></div>
+
+                <p>Слушай… я тут проверила, и оказывается, каждый раз, когда ты пишешь, моя
+                    <span class="spoiler blurred">батарейка на телефоне заряжается сама 😏 С 1 апреля 😉</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-from="Изабелла" data-to="Давид">
+            <div class="card-content">
+                <div class="sender">От: <span class="name">Изабелла</span></div>
+                <div class="recipient blurred">Кому: <span class="name">Давид</span></div>
+
+                <p>Ты не поверишь… но каждый раз, когда ты присылаешь сообщение, мои
+                    <span class="spoiler blurred">носки становятся счастливыми 🧦 С 1 апреля 😉</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-from="Изабелла" data-to="Давид">
+            <div class="card-content">
+                <div class="sender">От: <span class="name">Изабелла</span></div>
+                <div class="recipient blurred">Кому: <span class="name">Давид</span></div>
+
+                <p>Слушай… каждый раз, когда ты читаешь мои сообщения, где‑то на планете появляется
+                    <span class="spoiler blurred">улыбка 😏 С 1 апреля 😉</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 2 Newton0px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.sender, .recipient {
+    font-weight: 600;
+    color: #667eea;
+    margin: 10px 0;
+}
+
+.recipient {
+    color: #ff6b6b;
+}
+
+.blurred {
+    filter: blur(5px);
+    cursor: pointer;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.blurred:hover {
+    filter: blur(3px);
+}
+
+.spoiler.visible {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.show-to-btn {
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s
+
+
+ease;
+}
+
+.show-to-btn:hover {
+    background: #4cb7b4;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(78, 205, 196, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(78, 205, 196, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+
+        setTimeout(() => {
+            card.style.transition = 'all 0.8s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+
+    const spoilers = document.querySelectorAll('.spoiler.blurred');
+
+    spoilers.forEach(spoiler => {
+        spoiler.addEventListener('click', function() {
+            this.classList.add('visible');
+            this.style.cursor = 'default';
+        });
+    });
+
+    const blurredRecipients = document.querySelectorAll('.recipient.blurred');
+
+    blurredRecipients.forEach(recipient => {
+        recipient.addEventListener('click', function() {
+            this.classList.add('visible');
+            this.style.cursor = 'default';
+        });
+    });
+});
+
+
+
+
+</script>
